@@ -24,11 +24,11 @@ RUN pip install --no-cache-dir --upgrade pip
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy backend files
-COPY . /app/
+# Copy backend files into the backend package folder
+COPY . /app/backend/
 
 # Expose the port
 EXPOSE 8080
 
-# Start command
-CMD uvicorn main:app --host 0.0.0.0 --port $PORT
+# Start command (run as package backend.main:app)
+CMD uvicorn backend.main:app --host 0.0.0.0 --port $PORT
