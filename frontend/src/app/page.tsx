@@ -1,5 +1,5 @@
 "use client";
-
+// Trigger Vercel rebuild with frontend root directory
 import React, { useState, useEffect, useRef } from "react";
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, 
