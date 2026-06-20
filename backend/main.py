@@ -40,7 +40,7 @@ rf_road_closure_model = None
 shap_explainer = None
 feature_names = None
 
-MODELS_DIR = "c:/Users/hp/Desktop/EventManager/backend/ml/models"
+MODELS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ml", "models")
 
 @app.on_event("startup")
 def startup_event():
