@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+:root {
+  --background: #06090e;
+  --foreground: #f8fafc;
+  --card: #0c1424;
+  --card-foreground: #f8fafc;
+  --primary: #00e5ff; /* Cyan accent */
+  --primary-foreground: #06090e;
+  --secondary: #162238;
+  --secondary-foreground: #f8fafc;
+  --muted: #0d1627;
+  --muted-foreground: #94a3b8;
+  --accent: #10b981; /* Neon green */
+  --accent-foreground: #f8fafc;
+  --destructive: #f43f5e;
+  --destructive-foreground: #f8fafc;
+  --border: #1e293b;
+  --ring: #00e5ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Premium terminal scrollbar style */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #06090e;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00e5ff;
+}
+
+/* Pulsing effect for active/critical alerts */
+@keyframes pulse-cyan {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 2px rgba(0, 229, 255, 0.1);
+  }
+}
+
+.pulsing-alert-cyan {
+  animation: pulse-cyan 2s infinite;
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(244, 63, 94, 0.6);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 3px rgba(244, 63, 94, 0.2);
+  }
+}
+
+.pulsing-alert-red {
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Gauge fill animation for City Health Index and progress bars */
+@keyframes gauge-fill {
+  from { width: 0%; }
+}
+
+.animate-gauge-fill {
+  animation: gauge-fill 1.2s ease-out forwards;
+}
+
+/* Slide-in animation for smart alerts */
+@keyframes slide-in-alert {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-alert 0.4s ease-out forwards;
+}
+
+/* Fade pulse for demo mode highlight */
+@keyframes fade-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-fade-pulse {
+  animation: fade-pulse 2s infinite;
+}
+
+/* Impact radius pulse animation */
+@keyframes radius-pulse {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.08; }
+}
+
+.animate-radius-pulse {
+  animation: radius-pulse 3s ease-in-out infinite;
+}
+
+/* Number counter animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count-up {
+  animation: count-up 0.5s ease-out forwards;
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #0c1424 25%, #162238 50%, #0c1424 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Progress bar stripe animation */
+@keyframes progress-stripe {
+  0% { background-position: 1rem 0; }
+  100% { background-position: 0 0; }
+}
+
+.progress-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,0.05) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,0.05) 50%,
+    rgba(255,255,255,0.05) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: progress-stripe 1s linear infinite;
+}
