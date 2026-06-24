@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timedelta
 from typing import Optional, List
 from fastapi import Depends, HTTPException, status
@@ -9,7 +10,7 @@ from passlib.hash import bcrypt
 from .database import get_db, User
 
 # JWT Constants
-SECRET_KEY = "SMARTFLOW_SECRET_KEY_FOR_SECURITY_COMMAND_CENTER"
+SECRET_KEY = os.getenv("JWT_SECRET_KEY", "SMARTFLOW_SECRET_KEY_FOR_SECURITY_COMMAND_CENTER")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 480  # 8 hours shift
 
