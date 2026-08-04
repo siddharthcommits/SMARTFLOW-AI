@@ -165,7 +165,8 @@ def seed_data():
             
         # Check if incidents already seeded
         if db.query(Incident).count() == 0:
-            csv_path = "c:/Users/hp/Desktop/EventManager/backend/ml/traffic_incidents.csv"
+            db_dir = os.path.dirname(os.path.abspath(__file__))
+            csv_path = os.path.join(db_dir, "ml", "traffic_incidents.csv")
             if os.path.exists(csv_path):
                 import pandas as pd
                 print("Seeding initial incidents from generated dataset...")
